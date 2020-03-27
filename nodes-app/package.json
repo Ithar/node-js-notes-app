@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Ithar/node-js-notes-app/issues"
   },
-  "homepage": "https://github.com/Ithar/node-js-notes-app#readme"
+  "homepage": "https://github.com/Ithar/node-js-notes-app#readme",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "validator": "^13.0.0"
+  }
 }
