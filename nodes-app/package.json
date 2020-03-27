@@ -1,8 +1,8 @@
 {
-  "name": "node-js-notes-app",
+  "name": "nodes-app",
   "version": "1.0.0",
   "description": "A notes taking app in node",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Ithar/node-js-notes-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ithar Malik",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ithar/node-js-notes-app/issues"
