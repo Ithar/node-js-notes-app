@@ -26,7 +26,8 @@ Stack  | version |
 
 ## Application Run
 > node app.js
-  
+> nodemon app.js [ADD|REMOVE] (--tile='the title'| --body='the body')  
+
 ## Application URL
 
 ## Application GIT branches

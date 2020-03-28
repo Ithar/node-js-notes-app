@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Ithar/node-js-notes-app#readme",
   "dependencies": {
     "chalk": "^3.0.0",
-    "validator": "^13.0.0"
+    "validator": "^13.0.0",
+    "yargs": "^15.3.1"
   }
 }
