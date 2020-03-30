@@ -5,11 +5,11 @@ const notesFile = 'notes.json';
 
 const notes = {
 
-  getNotes : function() {
+  getNotes() {
     const notes = loadNotes();
     return notes;
   }, 
-  addNote : function(title, body) {
+  addNote(title, body) {
 
     const notes = loadNotes();
 
@@ -28,7 +28,7 @@ const notes = {
 
     return false;
   }, 
-  removeNote : function(id, title) {
+  removeNote(id, title) {
 
     const notes = loadNotes();
 
@@ -41,7 +41,7 @@ const notes = {
 
 }
 
-const createNote = function(title, body) {
+const createNote = (title, body) => {
     const note = {
       title : title,
       body: body
@@ -50,7 +50,7 @@ const createNote = function(title, body) {
   return note;
 }
 
-const loadNotes = function() {
+const loadNotes = () => {
   try {
     return JSON.parse(fs.readFileSync(notesFile).toString());
   } catch(e) {
@@ -59,16 +59,14 @@ const loadNotes = function() {
   }  
 }
 
-const saveNotes = function(notes) {
-  fs.writeFileSync(notesFile, JSON.stringify(notes));
-}
+const saveNotes = (notes) => fs.writeFileSync(notesFile, JSON.stringify(notes));
 
-const deleteById = function(id, notes) {
+const deleteById = (id, notes) => {
 
   const deletePostition = id -1;
 
-  const deleted = false;
-  for (var i = 0; i < notes.length; i++) {
+  let deleted = false;
+  for (let i = 0; i < notes.length; i++) {
       if (i === deletePostition) {
         notes.splice(i,1);
         deleted = true;
@@ -83,12 +81,13 @@ const deleteById = function(id, notes) {
   saveNotes(notes);
 }
 
-const deleteByTitle = function(title, notes) {
+const deleteByTitle = (title, notes) => {
 
-  const deleted = false;
-  for (var i = 0; i < notes.length; i++) {
+  let deleted = false;
+  for (let i = 0; i < notes.length; i++) {
     if (notes[i].title === title) {
       notes.splice(i,1);
+      deleted= true;
       break;
     }
   }
