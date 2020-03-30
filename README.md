@@ -18,6 +18,7 @@ Stack  | version |
 *Build env* | local
 
 ## NPM Modules (Local)
+> npm install fs
 > npm install validator
 > npm install chalk
 

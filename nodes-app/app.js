@@ -20,7 +20,7 @@ yargs.command({
             describe: 'Note body'
         }        
     },
-    handler: function(argv) {
+    handler(argv) {
         const success = notes.addNote(argv.title, argv.body)
         if (success) {
             console.log(chalk.green('New note added successfully'));
@@ -33,7 +33,18 @@ yargs.command({
 yargs.command({
     command: 'REMOVE', 
     describe: 'Remnoves a note based on id or title',
-    handler: function() {
+    builder: {
+        id: {
+            type: 'integer',
+            describe: 'Note id'
+        }, 
+        title: {
+            type: 'string',
+            describe: 'The note title'
+        }        
+    },
+    handler(argv) {
+        notes.removeNote(argv.id, argv.title);
         console.log(chalk.red('Note removed successfully'));
     }
 });
@@ -41,7 +52,7 @@ yargs.command({
 yargs.command({
     command: 'LIST', 
     describe: 'List notes',
-    handler: function() {
+    handler() {
 
         const myNotes = notes.getNotes();
 
@@ -58,7 +69,7 @@ yargs.command({
 yargs.command({
     command: 'READ', 
     describe: 'Reading notes',
-    handler: function() {
+    handler() {
         console.log(chalk.white('Reading you a note'));
     }
 });

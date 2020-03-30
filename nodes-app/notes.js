@@ -27,6 +27,16 @@ const notes = {
     } 
 
     return false;
+  }, 
+  removeNote : function(id, title) {
+
+    const notes = loadNotes();
+
+    if (id !== undefined) {
+      deleteById(id, notes);
+    } else if (title !== undefined) {
+      deleteByTitle(title, notes);
+    }
   }
 
 }
@@ -51,6 +61,43 @@ const loadNotes = function() {
 
 const saveNotes = function(notes) {
   fs.writeFileSync(notesFile, JSON.stringify(notes));
+}
+
+const deleteById = function(id, notes) {
+
+  const deletePostition = id -1;
+
+  const deleted = false;
+  for (var i = 0; i < notes.length; i++) {
+      if (i === deletePostition) {
+        notes.splice(i,1);
+        deleted = true;
+        break;
+      }
+  }
+  
+  if (!deleted) {
+    console.log(chalk.gray('Cannot delete a note with id:' +id));  
+  }
+
+  saveNotes(notes);
+}
+
+const deleteByTitle = function(title, notes) {
+
+  const deleted = false;
+  for (var i = 0; i < notes.length; i++) {
+    if (notes[i].title === title) {
+      notes.splice(i,1);
+      break;
+    }
+  }
+ 
+  if (!deleted) {
+    console.log(chalk.gray('Cannot delete a note with title:' +title));  
+  }
+
+  saveNotes(notes);
 }
 
 module.exports = notes;
