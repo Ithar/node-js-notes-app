@@ -6,8 +6,7 @@ const notesFile = 'notes.json';
 const notes = {
 
   getNotes() {
-    const notes = loadNotes();
-    return notes;
+    return loadNotes();
   }, 
   addNote(title, body) {
 
@@ -37,8 +36,31 @@ const notes = {
     } else if (title !== undefined) {
       deleteByTitle(title, notes);
     }
-  }
+  }, 
+  readNote(id, title) {
+    
+    const notes = loadNotes();
 
+    let note = undefined;
+
+    if (id !== undefined) {
+      id = id -1;
+
+      for (let i = 0; i < notes.length; i++) {
+        if (i === id) {
+          note = notes[i];
+          break;
+        }
+      }
+    } else if (title !== undefined) {
+      note = notes.find((note) => note.title === title);
+    }
+
+    console.log("=============================\n");
+    console.log(note.body)
+    console.log("\n=============================");
+
+  }
 }
 
 const createNote = (title, body) => {
