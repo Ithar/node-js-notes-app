@@ -55,10 +55,14 @@ const notes = {
     } else if (title !== undefined) {
       note = notes.find((note) => note.title === title);
     }
-
-    console.log("=============================\n");
-    console.log(note.body)
-    console.log("\n=============================");
+    
+    if (note !== undefined)  {
+      console.log("=============================\n");
+      console.log(note.body)
+      console.log("\n=============================");
+    } else {
+      console.log(chalk.gray.bold('Cannot find note to read [id='+id+' ,title='+title+']'));      
+    }
 
   }
 }
