@@ -38,7 +38,7 @@ const notes = {
     }
   }, 
   readNote(id, title) {
-    
+  
     const notes = loadNotes();
 
     let note = undefined;
@@ -55,7 +55,7 @@ const notes = {
     } else if (title !== undefined) {
       note = notes.find((note) => note.title === title);
     }
-    
+
     if (note !== undefined)  {
       console.log("=============================\n");
       console.log(note.body)
