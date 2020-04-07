@@ -2,7 +2,9 @@
 A notes taking app in node.
 
 #### Features 
-- Able to take notes and write to a file
+- Able to take notes and write to a file in JSON
+- Able to list all notes
+- Able to delete notes vai ID or title
 
 ## 
 
@@ -26,8 +28,8 @@ Stack  | version |
 > npm install -g nodemon
 
 ## Application Run
-> node app.js
-> nodemon app.js [ADD|REMOVE] (--tile='the title'| --body='the body')  
+> node app.js [ADD|LIST|READ|REMOVE] (--tile='the title'| --body='the body')  
+> nodemon app.js [ADD|LIST|READ|REMOVE] (--tile='the title'| --body='the body')  
 
 ## Application URL
 
